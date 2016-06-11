@@ -1,0 +1,28 @@
+﻿Build started 5/26/2016 4:37:01 PM.
+     1>Project "C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\fanuc.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\Release0id\fanuc.exe) does not match the Linker's OutputFile property value (C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\Release0id\fanuc_0id.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(fanuc) does not match the Linker's OutputFile property value (fanuc_0id). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\Release0id\fanuc_0id.exe" /INCREMENTAL:NO /NOLOGO Fwlib32.lib wsock32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\Release0id\fanuc.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\Release0id\fanuc.lib" /MACHINE:X86 /SAFESEH Release0id\adapter.obj
+         Release0id\client.obj
+         Release0id\condition.obj
+         Release0id\device_datum.obj
+         Release0id\fanuc_adapter.obj
+         Release0id\FanucAdapter.obj
+         Release0id\logger.obj
+         Release0id\minIni.obj
+         Release0id\server.obj
+         Release0id\service.obj
+         Release0id\string_array.obj
+         Release0id\string_buffer.obj
+         Release0id\fanuc_axis.obj
+         Release0id\fanuc_path.obj
+         Fwlib\Fwlib32.lib
+         Generating code
+         Finished generating code
+         fanuc.vcxproj -> C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\Release0id\fanuc.exe
+     1>Done Building Project "C:\Users\Patrick\Downloads\adapter-master\adapter-master\fanuc\fanuc.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.48

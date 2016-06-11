@@ -1,0 +1,188 @@
+﻿<!--Copyright (c) 2016 Feenux LLC, All Rights Reserved.-->
+
+<!--This file is subject to the terms and conditions defined in-->
+<!--file 'LICENSE.txt', which is part of this source code package.-->
+
+<Window x:Class="Fanuc_MTConnect_Agent_Configurator.Windows.AddDevice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fanuc_MTConnect_Agent_Configurator.Windows"
+        
+        xmlns:controls="clr-namespace:Fanuc_MTConnect_Agent_Configurator.Controls"
+        xmlns:th_wpf="clr-namespace:TH_WPF;assembly=TH_WPF"
+        
+        mc:Ignorable="d"
+        Title="Add Device" Height="410" Width="520" Icon="/Fanuc-MTConnect-Agent-Configurator;component/Resources/Add_01.png" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--List of Available Adapters-->
+        <Border BorderBrush="#ccc" BorderThickness="0,0,1,0" Background="{StaticResource Window_Background_Accent_Gradient}">
+
+            <StackPanel>
+
+                <TextBlock Text="Fanuc Controller Types" Foreground="#fff" FontSize="12" FontWeight="Bold" Margin="20,10" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
+
+                <ItemsControl ItemsSource="{Binding Adapters}">
+                    <ItemsControl.Resources>
+                        <Style TargetType="th_wpf:ListButton">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="#fff"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="#66ffffff"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true">
+                                    <Setter Property="Background" Value="#66ffffff"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ItemsControl.Resources>
+                </ItemsControl>
+
+            </StackPanel>
+
+        </Border>
+
+        <DockPanel Grid.Column="1">
+
+            <!--Bottom Bar-->
+            <Border DockPanel.Dock="Bottom" Background="#eee" BorderBrush="#ccc" BorderThickness="0,1,0,0" Height="50">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+
+                    <!--Cancel Button-->
+                    <th_wpf:Button Text="Cancel" Clicked="Cancel_Clicked">
+                        <th_wpf:Button.Style>
+                            <Style TargetType="th_wpf:Button">
+                                <Setter Property="HorizontalAlignment" Value="Right"/>
+                                <Setter Property="Margin" Value="0,10"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="#ccc"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="#aaa"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </th_wpf:Button.Style>
+                    </th_wpf:Button>
+
+                    <!--Add Button-->
+                    <th_wpf:Button Text="Add" Image="/Fanuc-MTConnect-Agent-Configurator;component/Resources/Add_01.png" Clicked="Add_Clicked">
+                        <th_wpf:Button.Style>
+                            <Style TargetType="th_wpf:Button">
+                                <Setter Property="HorizontalAlignment" Value="Right"/>
+                                <Setter Property="Margin" Value="10"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="Green"/>
+                                <Setter Property="IsEnabled" Value="false"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="#FF00AF00"/>
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="#888"/>
+                                        <Setter Property="Background" Value="#ccc"/>
+                                        <Setter Property="BorderBrush" Value="#ccc"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Trigger>
+                                    <DataTrigger Binding="{Binding Verified}" Value="true">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </th_wpf:Button.Style>
+                    </th_wpf:Button>
+
+                </StackPanel>
+                
+            </Border>
+
+            <!--Device Description Configuration-->
+            <StackPanel Grid.Column="1" Margin="20,10,0,0">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="th_wpf:TextBox">
+                            <Setter Property="Margin" Value="10,5"/>
+                            <Setter Property="Width" Value="250"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                        </Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <!--Fanuc Focas IP Address-->
+                    <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="Fanuc Focas IP Address"/>
+                    <th_wpf:TextBox Grid.ColumnSpan="2" Grid.Row="2" Margin="0,5,0,20" Text="{Binding DeviceInfo.AdapterFocasIp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Example="192.168.1.100" Required="True" TextChanged="IPAddress_TextChanged"/>
+
+
+                    <TextBlock Grid.ColumnSpan="2" Grid.Row="3" Text="Device Description (optional)" Margin="0,0,0,10" Foreground="#666666"/>
+
+                    <!--Manufacturer-->
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Manufacturer"/>
+                    <th_wpf:TextBox Grid.Column="1" Grid.Row="4" Text="{Binding DeviceInfo.Manufacturer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!--Model-->
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Model"/>
+                    <th_wpf:TextBox Grid.Column="1" Grid.Row="5" Text="{Binding DeviceInfo.Model, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!--Serial-->
+                    <TextBlock Grid.Column="0" Grid.Row="6" Text="Serial"/>
+                    <th_wpf:TextBox Grid.Column="1" Grid.Row="6" Text="{Binding DeviceInfo.Serial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!--Description-->
+                    <TextBlock Grid.Column="0" Grid.Row="7" Text="Description"/>
+                    <th_wpf:TextBox Grid.Column="1" Grid.Row="7" Margin="10,2,10,0" 
+                         Text="{Binding DeviceInfo.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="True" Height="60"
+                         />
+
+                </Grid>
+
+            </StackPanel>
+
+        </DockPanel>
+        
+        <Grid Grid.Column="1" Background="White">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DeviceInfo}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+
+            <TextBlock Text="Select a Controller Type" Foreground="#333" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        </Grid>
+        
+    </Grid>
+
+</Window>

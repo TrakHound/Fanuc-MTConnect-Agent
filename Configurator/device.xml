@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Device id="[dev_id]" name="[dev_name]" uuid="[dev_id]">
+  <Description manufacturer="Fanuc"></Description>
+  <DataItems>
+    <DataItem category="EVENT" id="[dev_id]_avail_01" name="avail" type="AVAILABILITY"/>
+  </DataItems>
+  <Components>
+    <Linear id="[dev_id]_x_01" name="X">
+      <DataItems>
+        <DataItem category="SAMPLE" id="[dev_id]_xact_01" name="Xact" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+        <DataItem category="SAMPLE" id="[dev_id]_xload_01" name="Xload" nativeUnits="PERCENT" subType="ACTUAL" type="LOAD" units="PERCENT"/>
+        <DataItem category="CONDITION" id="[dev_id]_xtravel_01" name="Xtravel" type="POSITION"/>
+        <DataItem category="CONDITION" id="[dev_id]_xoverheat_01" name="Xoverheat" type="TEMPERATURE"/>
+        <DataItem category="CONDITION" id="[dev_id]_xservo_01" name="Xservo" type="LOAD"/>
+      </DataItems>
+    </Linear>
+    <Linear id="[dev_id]_y_01" name="Y">
+      <DataItems>
+        <DataItem category="SAMPLE" id="[dev_id]_yact_01" name="Yact" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+        <DataItem category="SAMPLE" id="[dev_id]_yload_01" name="Yload" nativeUnits="PERCENT" subType="ACTUAL" type="LOAD" units="PERCENT"/>
+        <DataItem category="CONDITION" id="[dev_id]_ytravel_01" name="Ytravel" type="POSITION"/>
+        <DataItem category="CONDITION" id="[dev_id]_yoverheat_01" name="Yoverheat" type="TEMPERATURE"/>
+        <DataItem category="CONDITION" id="[dev_id]_yservo_01" name="Yservo" type="LOAD"/>
+      </DataItems>
+    </Linear>
+    <Linear id="[dev_id]_z_01" name="Z">
+      <DataItems>
+        <DataItem category="SAMPLE" id="[dev_id]_zact_01" name="Zact" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER"/>
+        <DataItem category="SAMPLE" id="[dev_id]_zload_01" name="Zload" nativeUnits="PERCENT" subType="ACTUAL" type="LOAD" units="PERCENT"/>
+        <DataItem category="CONDITION" id="[dev_id]_ztravel_01" name="Ztravel" type="POSITION"/>
+        <DataItem category="CONDITION" id="[dev_id]_zoverheat_01" name="Zoverheat" type="TEMPERATURE"/>
+        <DataItem category="CONDITION" id="[dev_id]_zservo_01" name="Zservo" type="LOAD"/>
+      </DataItems>
+    </Linear>
+    <Rotary id="[dev_id]_a_01" name="A">
+      <DataItems>
+        <DataItem category="SAMPLE" id="[dev_id]_aact_01" name="Aact" nativeUnits="DEGREE" subType="ACTUAL" type="ANGLE" units="DEGREE"/>
+        <DataItem category="SAMPLE" id="[dev_id]_aload_01" name="Aload" nativeUnits="PERCENT" subType="ACTUAL" type="LOAD" units="PERCENT"/>
+        <DataItem category="CONDITION" id="[dev_id]_atravel_01" name="Atravel" type="POSITION"/>
+        <DataItem category="CONDITION" id="[dev_id]_aoverheat_01" name="Aoverheat" type="TEMPERATURE"/>
+        <DataItem category="CONDITION" id="[dev_id]_aservo_01" name="Aservo" type="LOAD"/>
+        <DataItem category="EVENT" id="[dev_id]_arotarymode_01" type="ROTARY_MODE">
+          <Constraints>
+            <Value>INDEX</Value>
+          </Constraints>
+        </DataItem>
+      </DataItems>
+    </Rotary>
+    <Rotary id="[dev_id]_c_01" name="C" nativeName="S">
+      <DataItems>
+        <DataItem category="SAMPLE" id="[dev_id]_cspeed_01" name="S1speed" nativeUnits="REVOLUTION/MINUTE" subType="ACTUAL" type="ROTARY_VELOCITY" units="REVOLUTION/MINUTE"/>
+        <DataItem category="SAMPLE" id="[dev_id]_cload_01" name="S1load" nativeUnits="PERCENT" subType="ACTUAL" type="LOAD" units="PERCENT"/>
+        <DataItem category="EVENT" id="[dev_id]_crotarymode_01" type="ROTARY_MODE">
+          <Constraints>
+            <Value>SPINDLE</Value>
+          </Constraints>
+        </DataItem>
+        <DataItem category="SAMPLE" id="[dev_id]_cspeedovr_01" name="SspeedOvr" nativeUnits="PERCENT" subType="OVERRIDE" type="ROTARY_VELOCITY" units="PERCENT"/>
+        <DataItem category="CONDITION" id="[dev_id]_cservo_01" name="S1servo" type="LOAD"/>
+      </DataItems>
+    </Rotary>
+    <Controller id="[dev_id]_controller_01" name="Controller">
+      <DataItems>
+        <DataItem category="EVENT" id="[dev_id]_estop_01" name="estop" type="EMERGENCY_STOP"/>
+        <DataItem category="EVENT" id="[dev_id]_message_01" name="message" type="MESSAGE"/>
+        <DataItem category="CONDITION" id="[dev_id]_servo_01" name="servo" type="HARDWARE"/>
+        <DataItem category="CONDITION" id="[dev_id]_comms_01" name="comms" type="COMMUNICATIONS"/>
+        <DataItem category="CONDITION" id="[dev_id]_logic_01" name="logic" type="LOGIC_PROGRAM"/>
+        <DataItem category="CONDITION" id="[dev_id]_motion_01" name="motion" type="MOTION_PROGRAM"/>
+        <DataItem category="CONDITION" id="[dev_id]_system_01" name="system" type="SYSTEM"/>
+      </DataItems>
+      <Components>
+        <Path id="[dev_id]_path_01" name="path">
+          <DataItems>
+            <DataItem category="EVENT" id="[dev_id]_activeaxes_01" name="active_axes" type="ACTIVE_AXES"/>
+            <DataItem category="EVENT" id="[dev_id]_toolid_01" name="tool_id" type="TOOL_ID"/>
+            <DataItem category="EVENT" id="[dev_id]_line_01" name="line" type="LINE"/>
+            <DataItem category="EVENT" id="[dev_id]_execution_01" name="execution" type="EXECUTION"/>
+            <DataItem category="EVENT" id="[dev_id]_mode_01" name="mode" type="CONTROLLER_MODE"/>
+            <DataItem category="EVENT" id="[dev_id]_program_01" name="program" type="PROGRAM"/>
+            <DataItem category="EVENT" id="[dev_id]_programcomment_01" name="program_comment" type="PROGRAM_COMMENT"/>
+            <DataItem category="EVENT" id="[dev_id]_block_01" name="block" type="BLOCK"/>
+            <DataItem category="EVENT" id="[dev_id]_partcount_01" name="part_count" type="PART_COUNT"/>
+            <DataItem category="SAMPLE" id="[dev_id]_pathposition_01" name="path_position" nativeUnits="MILLIMETER_3D" subType="ACTUAL" type="PATH_POSITION" units="MILLIMETER_3D"/>
+            <DataItem category="SAMPLE" id="[dev_id]_pathfeedrate_01" name="path_feedrate" nativeUnits="MILLIMETER/SECOND" type="PATH_FEEDRATE" subType="ACTUAL" units="MILLIMETER/SECOND"/>
+            <DataItem category="SAMPLE" id="[dev_id]_feedcommanded_01" name="feed_commanded" nativeUnits="MILLIMETER/SECOND" type="PATH_FEEDRATE" subType="COMMANDED" units="MILLIMETER/SECOND"/>
+            <DataItem category="SAMPLE" id="[dev_id]_feedovr_01" name="feed_ovr" nativeUnits="PERCENT" subType="OVERRIDE" type="PATH_FEEDRATE" units="PERCENT"/>
+          </DataItems>
+        </Path>
+      </Components>
+    </Controller>
+  </Components>
+</Device>
