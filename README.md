@@ -16,6 +16,8 @@ The adapters are based on the Fanuc adapter that is part of the project availabl
 
 *Compatible with 0id and 30i Fanuc Controllers supporting Fanuc Focas over Ethernet*
 
+*Installation requres Administrator privileges and may display UAC dialogs which must be accepted throughout the installation process*
+
 ### Step 1
 
 Download the latest [Release](../../../TrakHound/releases/) and run the installer executable on a PC networked to the Fanuc Controller. Select the directory to install the Agent (typically the default path is acceptable) and click **Next**.
