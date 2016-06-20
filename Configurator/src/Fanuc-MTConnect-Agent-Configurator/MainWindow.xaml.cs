@@ -25,7 +25,7 @@ namespace Fanuc_MTConnect_Agent_Configurator
             InitializeComponent();
             DataContext = this;
 
-            //AgentServiceName = AgentConfigurationFile.GetServiceName();
+            AgentServiceName = AgentConfigurationFile.GetServiceName();
             AgentPort = AgentConfigurationFile.GetPort();
 
             ServerMonitor_Initialize();
@@ -57,14 +57,14 @@ namespace Fanuc_MTConnect_Agent_Configurator
 
 
 
-        //public string AgentServiceName
-        //{
-        //    get { return (string)GetValue(AgentServiceNameProperty); }
-        //    set { SetValue(AgentServiceNameProperty, value); }
-        //}
+        public string AgentServiceName
+        {
+            get { return (string)GetValue(AgentServiceNameProperty); }
+            set { SetValue(AgentServiceNameProperty, value); }
+        }
 
-        //public static readonly DependencyProperty AgentServiceNameProperty =
-        //    DependencyProperty.Register("AgentServiceName", typeof(string), typeof(MainWindow), new PropertyMetadata(null));
+        public static readonly DependencyProperty AgentServiceNameProperty =
+            DependencyProperty.Register("AgentServiceName", typeof(string), typeof(MainWindow), new PropertyMetadata(null));
 
         public int AgentPort
         {
