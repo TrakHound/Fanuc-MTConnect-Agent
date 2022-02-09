@@ -20,7 +20,7 @@ The adapters are based on the Fanuc adapter that is part of the project availabl
 
 ### Step 1
 
-Download the latest [Release](../../../TrakHound/releases/) and run the installer executable on a PC networked to the Fanuc Controller. Select the directory to install the Agent (typically the default path is acceptable) and click **Next**.
+Download the latest [Release](https://github.com/TrakHound/Fanuc-MTConnect-Agent/releases) and run the installer executable on a PC networked to the Fanuc Controller. Select the directory to install the Agent (typically the default path is acceptable) and click **Next**.
 
 ![Install Step 1](Images/install_01.png)
 
